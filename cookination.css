@@ -1,0 +1,875 @@
+/* Definició de Font(s) de Google */
+/* i importació / vinculació de la mateixa */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap');
+
+/* Font per defecte a tot el web */
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Definició dels colors del web */
+:root {
+    --TextiFonsFosc: #2A2A2A ;
+    --TextiFonsMenysFosc: rgba(0, 0, 0, 0.2);
+    --TextClar: #FFFFFF;
+    --ColorPrincipal: #79BAAB;
+    --ColorPrincipalClar: #C5E1DB;
+    --contrast: #DC4A23;
+    --contrastclar: #EB9781;
+    --ColorBody: #FFF7E8;
+  }
+
+  /* Centrat del body i definició del seu color */
+body {
+    margin: 0;
+    background-color: var(--ColorBody);
+}
+
+/* Estil del header */
+header {
+    /* index per a ficar en primer pla del tot per sobre dels altres index 1 i 2 */
+    z-index: 3;
+
+    /* enganxat a dalt de tot */
+    top:0;
+    position: sticky;
+
+    /* resta de propietats */
+    padding-top: 10px;
+    text-align: center;
+    background-color: var(--TextClar);
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* limitar màxim de tamany raonable */
+header .headercontainer {
+    max-width: 1200px;
+}
+
+/* mida màxima del logo */
+header img {
+    max-width: 125px;
+}
+
+/* menu superior i distribució en línia */
+header nav ul {
+    font-size: x-small;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-flex;
+    margin-bottom: 10px;
+}
+
+/* Afegir separador transparent entre els elements del menú */
+/* abans i després de cada element */
+header nav ul li::after, header nav ul li::before {
+    content: "";
+    margin-right: 8px;
+    color: transparent;
+}
+
+/* Estil dels enllaços del menu del header */
+header nav ul li a {
+    color: var(--TextiFonsFosc);
+    text-decoration: none;
+    font-size: small;
+}
+
+/* Estil de l'enllaç ACTIU del menu del header */
+header nav ul li.active {
+    font-weight: 600;
+    border-bottom: var(--TextiFonsFosc) dashed 1.5px;
+}
+
+/* Estil del HOVER dels enllaços del menu del header */
+header nav ul li a:hover {
+    color: var(--ColorPrincipal);
+    text-decoration-color: var(--ColorPrincipal);
+}
+
+/* Títols h1 sempre en majúscules */
+h1 {
+    text-transform: uppercase;
+}
+
+/* Aquest és una execpció als h1 sempre en majúscules */
+/* S'eliminen les transformacions en aquest cas */
+/* per aconseguir que NO forçi a majúscules */
+.subheadingarea h1 {
+    text-transform: none;
+}
+
+/* Estil de l'àrea subheadingarea */
+/* Distribució en GRID i subelements centrats */
+.subheadingarea {
+    text-align: center;
+    overflow:hidden;
+    background-image: url("img/knife-bg.jpg");
+    background-size:cover; 
+    background-repeat: no-repeat;
+    height: 225px;
+    display: grid;
+    place-items: center center;
+}
+
+/* Estil del títol dins d'aquest àrea subheadingarea */
+.subheadingarea h1 {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    max-width: 400px;
+}
+
+/* Estil del formulari de CERCA */
+.searchform {
+    width:100%;
+    max-width: 350px;
+}
+
+/* Estil dels blocs continguts en aquest àrea subheadingarea */
+.subheadingarea div {
+    margin: 0 30px 0 30px;
+    width:70%;
+    box-sizing: border-box;
+}
+
+/* Estil del MAIN de totes les pàgines */
+main {
+    margin: 0 auto;
+    min-width: auto;
+
+    /* També es limita la seva mida màxima per aconseguir un aspecte no distorsionat */
+    max-width: 1200px;
+    width: 95%;
+}
+
+/* Afegir al MAIN de la pàgina de RECEPTES las àreas visibles i la distribució per a mòbils*/
+/* Distribució en GRID */
+.recipes_page main {
+    display: grid;
+    grid-template-areas:
+    "head"
+    "recipes"
+    "pager";
+}
+
+/* Estil de la barra lateral - Oculta per defecte en mòbils */
+aside {
+    display: none;
+    grid-area: aside;
+    background-color: var(--TextClar);
+    height:100%;
+}
+
+/* Definir nom de l'àrea per a la distribució escollida */
+.recipes_page .recipesarea {
+    grid-area: recipes;
+}
+
+/* Definir nom de l'àrea per a la distribució escollida */
+.recipes_page .recipes_head{
+    grid-area: head;
+
+    /* Altres caracterìstiques */
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.shop_head, .videos_head {
+    /* Definir nom de l'àrea per a la distribució escollida */
+    grid-area: head;
+    
+    /* Altres caracterìstiques */
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.pager_area {
+    /* Definir nom de l'àrea per a la distribució escollida */
+    grid-area: pager;
+
+    /* Altres caracterìstiques */
+    margin: 0 auto;
+    padding: 15px 0 15px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Estils dels elements del menú de PAGINACIÓ */
+/* Distribució en línia */
+.pager_area ul {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estils dels ENLLAÇOS dels elements del menú de paginació */
+.pager_area ul li a {
+    text-decoration: none;
+    color: var(--ColorPrincipal);
+}
+
+/* Estil del HOVER dels ENLLAÇOS dels elements del menú de paginació */
+.pager_area ul li a:hover {
+    color: var(--ColorPrincipalClar);
+}
+
+/* Estil de l'enllaç ACTIU dels elements del menú de paginació */
+.pager_area .active {
+    color: var(--TextiFonsFosc);
+}
+
+/* Estil per al títol amb línies al costats */
+/* Distribució en FLEX per aconseguir les línias als costats després*/
+h2 span {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%; 
+    text-align: center; 
+    line-height: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Estil per a un altre tipus de títol amb línies al costats més curtes */
+h2 span.shorterline {
+    margin: 0 auto;
+}
+
+/* Afegir les línies abans i després del títol */
+h2.longline span::before, h2.longline span::after, .innershop h2 span::before, .innershop h2 span::after {
+    content: "";
+    flex: 1 1;
+    border-bottom: 4px solid var(--TextiFonsFosc);
+}
+
+/* Estil de l'h2 dins de l'àrea o bloc de SHOP */
+.innershop h2 {
+    margin: 0 auto;
+}
+
+/* Estil del INPUT de cercar receptes */
+.recipes_page input[type="search"] {
+    margin-left: 5px;
+}
+
+/* Estils del INPUT de cerca amb imatge de lupa i resta */
+input[type="search"] {
+    margin: 0;
+    font-size: 14px;
+    color: inherit;
+    border-radius: 5px;
+    border: 2px solid var(--ColorPrincipal);
+    width: 80%;
+    max-width: 500px;
+    padding: 10px 4px 10px 50px;
+    background: white url("img/icons/search.svg") no-repeat 13px center;
+    background-size: 18px;
+  }
+
+/* Estil per quan rep el FOCUS el INPUT de cerca */
+input[type="search"]:focus { 
+    outline: none !important;
+    border-color: var(--TextiFonsFosc);
+    box-shadow: 0 0 10px var(--ColorPrincipal);
+ }
+
+/* Limitar ample del INPUT de cerca a la pàgina de receptes */
+ .recipes_page input[type="search"] {
+    width: 90%;
+    max-width: 500px;
+ }
+
+/* Estil del PLACEHOLDER del INPUT de cerca */
+input[type="search"]::placeholder {
+    color: var(--TextiFonsFosc);
+    opacity: .3;
+ }
+
+/* Definició de GRID per aquestes àrees */
+/* Distribució per a mòbils */
+/* Distribució en GRID */
+.latestmeals, .recipes_area, .shop_area {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content:space-between;
+    gap: 20px;
+ }
+
+/* Definició de GRID per aquesta àrea */
+/* Distribució per a mòbils */
+/* Distribució en GRID */
+.videos_area {
+    display:grid;
+    grid-template-columns: 1fr;
+    justify-content:space-between;
+    gap: 20px;
+ }
+
+ /* Estil i limit de mida per a imatges dins aquestes àrees */
+.latestmeals img, .pick img, .recipes_area img, .shop_area img {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    /* object-fit: scale-down; */
+}
+
+/* Estil del BLOC que conté els IFRAME de vídeos de Youtube
+i per a que tinguin un aspecte proporcionat */
+.videos_area .video {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+/* Estil dels IFRAME de vídeos de Youtube*/
+.videos_area iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Estil de l'àrea d'explicació a sota de cada vídeo de Youtube*/
+.videos_area .explanation {
+    padding: 5px 10px 10px 10px;
+    background-color: var(--TextClar);
+}
+
+/* Eliminar el marge superior al p dins aquest àrea */
+.explanation p {
+    margin-top:0;
+}
+
+/* Definir marge i transformació de text al h3 dins d'aquest àrea*/
+.explanation h3 {
+    margin-bottom:10px;
+    text-transform: uppercase;
+
+}
+
+/* Estil dels FIGURE dins del ARTICLE en aquestes àrees */
+.latestmeals figure, .pick figure, .recipes_area figure, .shop_area figure {
+      padding: 0;
+      margin: 0 0 10px 0;
+}
+
+/* Estil dels FIGCAPTION dins dels FIGURE en aquestes àrees */
+.latestmeals figcaption, .recipes_area figcaption, .shop_area figcaption, form h3 {
+    font-weight: 900;
+    font-size:small;
+    text-transform: uppercase;
+}
+
+/* Amagar els H3 del article en aquestes àrees
+Els element ARTICLE obliguen a fer servir un títol h... */
+.latestmeals article h3, .recipes_area article h3, .shop_area article h3 {
+      display: none;
+}
+
+/* Estil del bloc amb imatge de fons que inclou la secció SHOP */
+/* Distribució en GRID */
+article.shop {
+    grid-column: span 2;
+    background-image: url("img/shop-bg.jpg");
+    background-size:cover; 
+    background-repeat: no-repeat;
+    height: 22em;
+    display: grid;
+    place-items: center center;
+}
+
+/* Estil del bloc dins del Shop */
+article.shop .innershop {
+    box-sizing: border-box;
+    text-align: center;
+    width: 80%;
+    background-color: white;
+    box-shadow: 4px 4px 3px 3px var(--TextiFonsMenysFosc);
+    padding: 40px;
+    border: 1px solid var(--TextiFonsMenysFosc);
+}
+
+/* Estil dels DIV de classe BUTTON */
+div.button {
+    margin-bottom: 20px;
+}
+
+/* Estil dels enllaços  de classe BUTTON dins d'aquest àrea*/
+.pick a.button {
+    text-decoration: none;
+    background-color: var(--TextClar);
+    border: 1px solid var(--ColorPrincipal);
+    color: var(--ColorPrincipal);
+    border-radius: 4px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+}
+
+/* Estil del HOVER dels enllaços  de classe BUTTON dins d'aquest àrea*/
+.pick a.button:hover {
+    background-color: var(--ColorPrincipal);
+    color: var(--TextClar);
+}
+
+/* Estil del bloc amb classe FONDOPNG */
+.fondopng {
+    background: var(--ColorPrincipal);
+    text-align: center;
+    padding-bottom: 25px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Estil dels H3 i FORM dins d'aquest bloc
+per a definir index per a superposar una secció sobre un altra*/
+.fondopng h3,.fondopng form, .fondopng p {
+    position: relative;
+    z-index: 2;
+}
+
+/* Estil del P dins d'aquest bloc*/
+.fondopng p {
+    /* Centrar element */
+    margin: 0 auto;
+
+    max-width: 450px;
+    margin-bottom: 20px;
+}
+
+/* Estil del bloc per a incloure una imatge de fons
+superposada amb el color de fons i que no tapi els altres elements */
+.fondopng::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 200%;
+    z-index: 1;
+    opacity: 0.15;
+    background-image: url("img/doodle.png");
+    background-repeat:repeat;
+    background-size:contain;
+}
+
+/* Estil del INPUT dins al newsletter */
+.newsletter input[type=submit] {
+    font-size:small;
+    border-style: none;
+    background-color: var(--contrast);
+    color: var(--TextClar);
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Estil del HOVER del BOTÓ submit dins el newsletter */
+.newsletter input[type=submit]:hover {
+    background-color: var(--contrastclar);
+    cursor: pointer; 
+}
+
+/* Estil del INPUT del EMAIL dins el newletter */
+.newsletter input[type=email] {
+    font-size:small;
+    width: 60vw;
+    padding: 10px;
+    text-align: left;
+    border-radius: 5px;
+    border: 1px solid var(--ColorPrincipal);
+    margin-right: 7px;
+}
+
+/* Estil del h3 dins aquesta secció */
+.fondopng h3 {
+    text-transform: uppercase;
+}
+
+/* Estil del HOVER de l'Enllaç amb classe button dins el bloc newsletter */
+.newsletter a.button:hover {
+    background-color: var(--contrastclar);
+    color: var(--TextClar);
+}
+
+/* Estil del formulari */
+form {
+    display:inline-block;
+    place-items: center;
+}
+/* Estil del h3 dins el bloc amb classe pick */
+.pick h3 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-weight: 900;    
+    font-size: x-large;
+}
+
+/* Estil de tots el h5 */
+h5 {
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+/* Estil dels ENLLAÇOS dins del bloc classe shop_rest */
+.shop_rest a {
+    color: var(--contrast);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Estil del HOVER dels ENLLAÇOS dins del bloc classe shop_rest */
+.shop_rest a:hover {
+    color: var(--contrastclar);
+}
+
+/***********************************/
+/* MEDIA per a PANTALLES més GRANS */
+/***********************************/
+/***** @media per a definir diferències d'estils per a mides de pantalla a partir de 768px *****/
+@media (min-width: 768px) {
+    /***********************************/
+    /*********** INICI media ***********/
+    /***********************************/
+    
+    /* Canvi de distribució de columnes dins el bloc classe latestmeals */
+    .latestmeals  {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+
+    /* Canvi de distribució de columnes dins el bloc amb aquestes dues classes */
+    .recipes_area, .shop_area {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    /* Canvi d'estil del component classe shoprest */
+    .shop_rest {
+        margin: 0 auto;
+        text-align: center;
+        width: 80%;
+    }
+
+    /* Canvi d'estil del component amb aquesta classe */
+    /* S'ha de forçar amb !important */
+    .innershop {
+        width: 70%!important;
+    }
+
+    /* Canvi d'estil del h1 dins un component amb aquesta classe */
+    .subheadingarea h1 {
+        margin-bottom: 20px;
+    }
+   
+    /* Canvi d'estil del h2 dins un component amb aquesta classe */
+    .innershop h2 {
+        width: 50%;
+    }
+    
+    /* Canvi d'estil del h2 dins un component amb aquesta classe */
+    /* Limitar la mida màxima d'amplada */
+    .newsletter input[type=email] {
+        max-width: 200px;
+    }
+
+    /* Canvi de distribució del bloc amb aquesta classe */
+    .videos_area {
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content:space-between;
+        gap: 20px;
+    }
+    
+    /* Canvi de distribució del bloc amb aquesta classe */
+    article.shop {
+        grid-column: span 4;
+    }
+    
+    /* Canvi de distribució del bloc amb aquesta classe */
+    .pick{
+        display: grid;
+        gap: 15px;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 20px;
+    }
+    /* Canvi de distribució del bloc amb aquesta classe */
+    /* Limitar amplada màxima i altres */
+    header .headercontainer {
+        max-width: 1200px;
+        width: 95%;
+        display: grid;
+        gap: 15px;
+        grid-template-columns: 1fr 1fr;
+        margin: 0 auto;
+        padding: 0;
+        padding-bottom: 10px;
+        place-items: center;
+    }
+
+    /* Canvi de distribució del bloc amb aquesta classe */
+    /* Limitar amplada màxima i altres */
+    footer .footercontainer {
+        max-width: 1200px;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    /* Canvi posició logo */
+    header .logo {
+        justify-self: start;
+    }
+
+    /* Canvi posició menú navegació */
+    header .navmenu {
+        justify-self: end;
+    }
+
+    /* Canvi marges llista ul del menú */
+    header .navmenu nav ul {
+        margin: 0;
+    }
+
+    /* Canvi distribució i posició imatge dins element amb aquesta classe */
+    .pick .image {
+        align-self: center;
+        max-height: 100%;
+    }
+
+    /* Canvi p dins element d'aquesta classe */
+    .pick p {
+        font-size: 90%;
+    }
+
+    /* Canvi distribució dins aquest element */
+    .footercontainer .socialnetworks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+
+    /* Canvi distribució dins aquest element */
+    .footercontainer .rest {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+
+    /* Canvi distribució dins aquest element */
+    .footercontainer .socialnetworks .recipes {
+        grid-column: 1;
+        align-self: center;
+        justify-self: start;
+        max-width: 200px;
+    }
+    
+    /* Canvi distribució dins aquest element */
+    .footercontainer .rest .copyright {
+        grid-column: 1;
+        align-self: center;
+        justify-self: start;
+        text-align: left;
+    }
+    /* Canvi distribució dins aquest element */
+    .footercontainer .socialnetworks .social {
+        align-self: center;
+        justify-self: end;
+        place-items: center center;
+    }
+
+    /* Canvi llista de menú dins aquest element */
+    /* Distribució i altres */
+    .social ul {
+        align-items: center;
+        display: inline-flex;
+        gap: 10px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        align-self: center;
+    }
+
+    /* Canvi distribució dins aquest element */
+    .footercontainer .rest .footermenu {
+        grid-column: 2;
+        align-self: center;
+        justify-self: end;
+    }
+
+    /* Anul·lació marges dins aquests elements */
+    .footercontainer .rest p, .footercontainer .rest ul {
+        margin: 0;
+    }
+    /* Anul·lació marges dins aquests elements */
+    /* i canvi alineació */
+    .highlighted {
+        margin: 0;
+        text-align: left;
+    }
+
+    /* Canvi distribució dins aquest element */
+    /* definició d'àrees a mostrar */
+    .recipes_page main {
+        display: grid;
+        grid-template-areas:
+        "head head"
+        "aside recipes"
+        "aside pager";
+        grid-template-columns: 1fr 3fr;
+    }
+    
+    /* Canvi distribució dins aquest element */
+    /* definició d'àrees a mostrar */
+    .shop_page main {
+        display: grid;
+        grid-template-areas:
+        "head head"
+        "aside shop"
+        "aside pager";
+        grid-template-columns: 1fr 3fr;
+    }
+    
+    /* Fer visible la secció en pantalles grans */
+    /* i adaptar marges i padding */
+    aside {
+        display:unset!important;
+        margin-right: 20px;
+        padding-left: 20px;
+    }
+
+    /* Canvi alineació */
+    .recipes_head ,.shop_head, .videos_head{
+        text-align: left!important;
+    }
+    /***********************************/
+    /*********** FINAL media ***********/
+    /***********************************/
+}
+
+
+/* Estil per al footer */
+footer {
+    padding: 15px;
+    background-color: var(--TextiFonsFosc);
+    color: #fff;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Estil per al p dins el footer */
+footer p {
+    margin-bottom: 5px;
+}
+
+/* Estil dels enllaços dins el footer */
+footer a {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    align-self: center;
+}
+
+/* Estil de les imatges de xarxes socials dins el footer  */
+footer .social img {
+    align-self: center;
+}
+
+/* Estil dels ENLLAÇOS dins aquestes elements */
+.recipes_area a, .shop_area a, .latestmeals article figcaption a {
+    text-decoration: none;
+    color: var(--TextiFonsFosc);
+}
+
+/* Estil del HOVER dels ENLLAÇOS dins aquestes elements */
+footer a:hover, .recipes_area a:hover, .shop_area a:hover, .latestmeals article figcaption a:hover {
+    border: none;
+    color: var(--ColorPrincipal);
+}
+
+/* Estil dels ENLLAÇOS dins aquest element */
+.social a:hover {
+    border: none;
+    opacity: 0.7;
+}
+
+/* Estil de la llista de menú del footer */
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estil per al primer element de la llista de menú de xarxes socials */
+.social ul li:first-child {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estil pels elements de la llista de menú del footer */
+footer ul li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+/* Eliminar de l'últim element del menú el contingut de després */
+footer ul li:last-child::after {
+    content: "";
+}
+
+/* Estil dels p amb aquesta classe */
+p.highlighted {
+    font-weight: 600;
+}
+
+/* Estil per a l'espai entre diferents enllaços
+dins elements amb aquesta classe */
+.socialnetworks a + a {
+    padding: 7px;
+}
+
+/* Estil d'aquest bloc */
+.socialnetworks {
+    border-bottom: 1px solid var(--TextClar);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+/* Estil de la llista dins un formulari */
+form ul {
+    list-style: none;
+    margin-bottom: 25px;
+    margin-top: 0px;
+    padding: 0;
+    font-size: small;
+}
+
+/* Estil dels h3 dins el formulari */
+form h3 {
+    margin-left: 5px;
+    font-size: inherit;
+    margin-bottom: 5px;
+}
+
+/* Estil per a quant estan marcats els elemnents tipus checkbox */
+input[type="checkbox"]:checked {
+    accent-color: var(--ColorPrincipal);
+}
+
+/* Estil per les etiquetes dins el formulari */
+form label {
+    margin-left: 5px;
+}
+
+/* Marge per als articles dins l'àrea de vídeos */
+.videos_area article {
+    margin-bottom: 30px;
+}
